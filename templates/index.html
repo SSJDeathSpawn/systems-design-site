@@ -6,12 +6,76 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="https://unpkg.com/htmx.org@1.9.6"></script>
+	<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.8.0/styles/xcode.min.css">
+	<script src="https://unpkg.com/@highlightjs/cdn-assets@11.8.0/highlight.min.js"></script>
+	<script src="https://unpkg.com/@highlightjs/cdn-assets@11.8.0/languages/verilog.min.js"></script>
 	<link href="{{url_for('static',filename='css/output.css')}}" rel="stylesheet">
+	<script>hljs.highlightAll();</script>
 </head>
 
 <body>
-	<h2 class="">Code Generator</h2>
-	<span>Made by Adikesavan</span>
+	<div class="mx-auto w-8/12 mt-5">
+		<div class="mb-2">
+		<h1 class="text-5xl mb-1">Code Generator</h2>
+		<span class="text-slate-800">Made by Adikesavan</span>
+		</div>
+		<hr />
+		<div class = "mt-5">
+			<div class="my-7">
+			<h2 class="text-2xl">Tasks:</h2>
+			<table class="table-auto mt-2 border-separate border-spacing-x-5 border-spacing-y-3 text-left">
+				<thead><tr>
+					<th>Task</th>
+					<th>Description</th>
+					<th>Progress</th>
+				</tr></thead>
+
+				<tbody><tr>
+					<td>1</td>
+					<td>OAI, AOI, NAND and NOR using registration number</td>
+					<td>&#10060;</td>
+				</tr>
+
+				<tr>
+					<td>2</td>
+					<td>Adders and Subtractors</td>
+					<td>&#10060;</td>
+				</tr>
+
+				<tr>
+					<td>3</td>
+					<td>Task 1 and 2 using MUX and DECODER</td>
+					<td>&#10060;</td>
+				</tr>
+
+				<tr>
+					<td>4</td>
+					<td>ALU Design</td>
+					<td>&#10060;</td>
+				</tr>
+
+				<tr>
+					<td>5</td>
+					<td>Counter using registration number</td>
+					<td>&#10060;</td>
+				</tr></tbody>
+			</table>
+			</div>
+			<div class="my-7">
+			<label for="task" class="text-2xl">Select task number:</label><br>
+			<select class="p-2 mt-2" name="task" id="task" hx-trigger="load, change" hx-target="#task_main" hx-get="/task_change">
+				<option value="task1">Task 1</option>
+				<option value="task2">Task 2</option>
+				<option value="task3">Task 3</option>
+				<option value="task4">Task 4</option>
+				<option value="task5">Task 5</option>
+			</select>
+			</div>
+			<div id="task_main" hx-target="this">
+
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>
