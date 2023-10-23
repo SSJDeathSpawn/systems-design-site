@@ -35,11 +35,8 @@ Finally:
 python main.py
 ```
 
-Now pay attention to the command output,
-
-you will see something like:
-
-`* Running on http://127.0.0.1:5000`
-
+Now pay attention to the command output,\
+you will see something like:\
+`* Running on http://127.0.0.1:5000`\
 Paste that address into the browser or click on it if your terminal supports links
 
