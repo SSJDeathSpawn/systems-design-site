@@ -1,1 +1,23 @@
 <h2 class="text-3xl">Task 3</h2>
+
+<div class="my-7">
+	<p class="text-lg mb-2">Enter your registration number:</p>
+	<input type="text" name="regno" value="{{form['regno']}}" class="p-2 outline outline-blue-800 rounded-xl" hx-trigger="keyup[which===13]" hx-post="/task_change?task=task3" hx-include="[name='type']" hx-swap="innerHTML"/> <br>
+	{% if error %}<span class="text-red-800">{{ error.regno }}</span><br>{% endif %}
+
+	<p class="text-lg mt-7 mb-1">Mode:</p>
+	<select class="p-2" name="type" id="type" hx-trigger="change" hx-post="/task_change?task=task3" hx-include="[name='regno']" hx-swap="innerHTML">
+	<option value="MUX16" {% if form['type'] == "MUX16" %}selected{%endif%}>MUX16</option>
+	<option value="MUX8A" {% if form['type'] == "MUX8A" %}selected{%endif%}>MUX8A</option>
+	<option value="MUX8B" {% if form['type'] == "MUX8B" %}selected{%endif%}>MUX8B</option>
+	<option value="MUX8C" {% if form['type'] == "MUX8C" %}selected{%endif%}>MUX8C</option>
+	<option value="MUX8D" {% if form['type'] == "MUX8D" %}selected{%endif%}>MUX8D</option>
+	<option value="DECODER" {% if form['type'] == "DECODER" %}selected{%endif%}>DECODER</option>
+	</select>
+</div>
+
+<div class="mt-7">
+<pre><code class="language-verilog" id="code">
+{% if code %}{{code}}{% endif %}
+</code></pre><script>hljs.highlightAll();</script>
+</div>

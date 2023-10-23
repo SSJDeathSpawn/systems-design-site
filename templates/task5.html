@@ -1,1 +1,13 @@
 <h2 class="text-3xl">Task 5</h2>
+
+<div class="my-7">
+	<p class="text-lg mb-2">Enter your registration number:</p>
+	<input type="text" name="regno" value="{{form['regno']}}" class="p-2 outline outline-blue-800 rounded-xl" hx-trigger="keyup[which===13]" hx-post="/task_change?task=task5" hx-include="[name='type']" hx-swap="innerHTML"/> <br>
+	{% if error %}<span class="text-red-800">{{ error.regno }}</span><br>{% endif %}
+</div>
+
+<div class="mt-7">
+<pre><code class="language-verilog" id="code">
+{% if code %}{{code}}{% endif %}
+</code></pre><script>hljs.highlightAll();</script>
+</div>

@@ -1,5 +1,8 @@
-#Editor config
+# Editor config
 .editorconfig
+
+# Output Tailwind CSS
+static/css/output.css
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
