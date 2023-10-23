@@ -505,12 +505,11 @@ def task4():
 
 def task5():
     f_vals: List[int] = extract_in_order(request.form['regno'])
-    beg = '''module task5(i, clk, O);
-\tinput[3:0] i;
+    beg = '''module task5(clk, O);
 \tinput clk;
-\toutput reg O;
+\toutput reg[3:0] O;
 \talways @(posedge clk) begin
-\t\tcase(i):
+\t\tcase(O)
 '''
     end = '''\t\tendcase
 \tend
@@ -518,15 +517,16 @@ endmodule'''
     tb = '''
 
 module task5_tb;
-\treg[3:0] i;
-\twire O;
-\ttask3 inst(i,O);
-\tinteger c;
+\treg clk;
+\twire[3:0] O;
+\ttask5 inst(clk, O);
+\tinteger i;
 
 \tinitial begin
-\t\tfor(c=0;c<16;c=c+1) begin
-\t\t\ti = c;
-\t\t\t#10;
+\t\tclk = 1'b0;
+\t\tfor(i=0;i<20;i=i+1) begin
+\t\t\tclk = ~clk;
+\t\t\t#5;
 \t\tend
 \tend
 endmodule'''
@@ -534,9 +534,9 @@ endmodule'''
     mid = ""
     for idx, curr in enumerate(f_vals[:-1]):
         next = f_vals[idx+1]
-        mid += f"\t\t\t4'b{bin(curr)[2:].rjust(4, '0')}: O = 4'b{bin(next)[2:].rjust(4, '0')}\n"
-    mid += f"\t\t\t4'b{bin(f_vals[-1])[2:].rjust(4, '0')}: O = 4'b{bin(f_vals[0])[2:].rjust(4, '0')}\n"
-    mid += f"\t\t\tdefault: 4'b{bin(f_vals[0])[2:].rjust(4, '0')}\n"
+        mid += f"\t\t\t4'b{bin(curr)[2:].rjust(4, '0')}: O = 4'b{bin(next)[2:].rjust(4, '0')};\n"
+    mid += f"\t\t\t4'b{bin(f_vals[-1])[2:].rjust(4, '0')}: O = 4'b{bin(f_vals[0])[2:].rjust(4, '0')};\n"
+    mid += f"\t\t\tdefault: O = 4'b{bin(f_vals[0])[2:].rjust(4, '0')};\n"
 
     return beg + mid + end + tb
 
