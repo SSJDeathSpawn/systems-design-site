@@ -18,7 +18,7 @@ Make a virtual environment for python (Optional):
 python -m venv venv
 ```
 ```bash
-./venv/bin/activate
+source ./venv/bin/activate
 ```
 Or in powershell:
 ```powershell
@@ -30,6 +30,11 @@ Install the python requirements:
 pip install -r requirements.txt
 ```
 
+```bash
+./load
+```
+to generate the css for the website.
+
 Finally:
 ```bash
 python main.py
@@ -38,5 +43,5 @@ python main.py
 Now pay attention to the command output,\
 you will see something like:\
 `* Running on http://127.0.0.1:5000`\
-Paste that address into the browser or click on it if your terminal supports links
+Paste that address into the browser or click on it if your terminal emulator supports links
 
