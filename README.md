@@ -4,6 +4,7 @@
 Clone the repository using:
 ```bash
 git clone https://github.com/SSJDeathSpawn/systems-design-site.git
+cd systems-design-site
 ```
 in a directory/folder of your liking.
 
@@ -30,10 +31,10 @@ Install the python requirements:
 pip install -r requirements.txt
 ```
 
+To generate the css for the website:
 ```bash
 ./load
 ```
-to generate the css for the website.
 
 Finally:
 ```bash
