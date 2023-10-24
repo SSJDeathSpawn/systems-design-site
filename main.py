@@ -42,6 +42,14 @@ def task_change():
     return render_template(f"{request.args.get('task')}.html", error=error, code=code, form=form)
 
 
+def val_task1():
+    error = None
+    if not bool(re.match(r"\d{2}[A-Z]{3}\d{4}", request.form['regno'])):
+        error = Error()
+        error.regno = "Invalid registration number"
+    return error
+
+
 def val_task2():
     pass
 
@@ -59,15 +67,15 @@ def val_task4():
 
 
 def val_task5():
-    pass
-
-
-def val_task1():
     error = None
-    if not bool(re.match(r"\d{2}[A-Z]{3}\d{4}", request.form['regno'])):
-        error = Error()
-        error.regno = "Invalid registration number"
-    return error
+    if request.form['type'] == "Random":
+        if not bool(re.match(r"\d{2}[A-Z]{3}\d{4}", request.form['no'])):
+            error = Error()
+            error.no = "Invalid Registration number"
+    elif request.form['type'] == "ModN":
+        if not bool(re.match(r"\d{2}", request.form['no'])):
+            error = Error()
+            error.no = "Invalid Serial Number"
 
 
 def task1():
@@ -560,7 +568,6 @@ endmodule
 
 
 def task5():
-    f_vals: List[int] = extract_in_order(request.form['regno'])
     beg = '''module task5(clk, O);
 \tinput clk;
 \toutput reg[3:0] O;
@@ -588,11 +595,25 @@ module task5_tb;
 endmodule'''
 
     mid = ""
-    for idx, curr in enumerate(f_vals[:-1]):
-        next = f_vals[idx+1]
-        mid += f"\t\t\t4'b{bin(curr)[2:].rjust(4, '0')}: O = 4'b{bin(next)[2:].rjust(4, '0')};\n"
-    mid += f"\t\t\t4'b{bin(f_vals[-1])[2:].rjust(4, '0')}: O = 4'b{bin(f_vals[0])[2:].rjust(4, '0')};\n"
-    mid += f"\t\t\tdefault: O = 4'b{bin(f_vals[0])[2:].rjust(4, '0')};\n"
+
+    if request.form['type'] == "Random":
+        f_vals: List[int] = extract_in_order(request.form['no'])
+
+        for idx, curr in enumerate(f_vals[:-1]):
+            next = f_vals[idx+1]
+            mid += f"\t\t\t4'b{bin(curr)[2:].rjust(4, '0')}: O = 4'b{bin(next)[2:].rjust(4, '0')};\n"
+        mid += f"\t\t\t4'b{bin(f_vals[-1])[2:].rjust(4, '0')}: O = 4'b{bin(f_vals[0])[2:].rjust(4, '0')};\n"
+        mid += f"\t\t\tdefault: O = 4'b{bin(f_vals[0])[2:].rjust(4, '0')};\n"
+
+    if request.form['type'] == "ModN":
+        serial = request.form['no']
+        lim = sum(map(int, serial))
+        if lim < 5:
+            lim = 9 - lim
+        for i in range(lim):
+            mid += f"\t\t\t4'b{bin(i)[2:].rjust(4, '0')}: O = 4'b{bin(i+1)[2:].rjust(4, '0')};\n"
+        mid += f"\t\t\t4'b{bin(lim)[2:].rjust(4, '0')}: O = 4'b{bin(0)[2:].rjust(4, '0')};\n"
+        mid += f"\t\t\tdefault: O = 4'b{bin(0)[2:].rjust(4, '0')};\n"
 
     return beg + mid + end + tb
 

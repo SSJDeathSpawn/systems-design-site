@@ -1,12 +1,18 @@
 <h2 class="text-3xl">Task 5</h2>
 
 <div class="my-7">
-	<p class="text-lg mb-2">Enter your registration number:</p>
-	<input type="text" name="regno" value="{{form['regno']}}" class="p-2 outline outline-blue-800 rounded-xl" hx-trigger="keyup[which===13]" hx-post="/task_change?task=task5" hx-include="[name='type']" hx-swap="innerHTML"/> <br>
-	{% if error %}<span class="text-red-800">{{ error.regno }}</span><br>{% endif %}
+	<p class="text-lg mb-2">Select the type:</p>
+	<select class="p-2" name="type" id="type">
+	<option value="Random" {% if form['type'] == "Random" %}selected{%endif%}>Random Counter</option>
+	<option value="ModN" {% if form['type'] == "ModN" %}selected{%endif%}>Mod-n Counter</option>
+	</select>
+
+	<p class="text-lg mt-7">Enter your registration number/serial number:</p>
+	<input type="text" name="no" value="{{form['no']}}" class="p-2 outline outline-blue-800 rounded-xl" hx-trigger="keyup[which===13]" hx-post="/task_change?task=task5" hx-include="[name='type']" hx-swap="innerHTML"/> <br>
+	{% if error %}<span class="text-red-800">{{ error.no }}</span><br>{% endif %}
 </div>
 
-<div class="mt-7">
+<div class="mt-3">
 <pre><code class="language-verilog" id="code">
 {% if code %}{{code}}{% endif %}
 </code></pre><script>hljs.highlightAll();</script>
