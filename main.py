@@ -349,7 +349,10 @@ endmodule'''
 
 
 def task2():
-    pass
+    circuit = request.form['circuit']
+    mode = request.form['mode']
+    with open(f"./codes/{circuit}_{mode}.v", 'r') as f:
+        return f.read()
 
 
 def task3():
@@ -500,7 +503,60 @@ endmodule'''
 
 
 def task4():
-    pass
+    beg = '''module task4(a,b,opcode,O);
+\tinput[3:0]a, b, opcode;
+\toutput reg[7:0] O;
+\talways @(*) begin
+\t\tcase(opcode)
+'''
+
+    end = '''\t\t\tdefault: O = 8'bxxxxxxxx;
+\t\tendcase
+\tend
+endmodule
+'''
+    
+    mid = ""
+    
+    def get_line(shorthand: str) -> str:
+        match(shorthand):
+            case "A>>":
+                return "a >> 1"
+            case "B>>":
+                return "b >> 1"
+            case "A<<":
+                return "a << 1"
+            case "B<<":
+                return "b << 1"
+            case "A+1":
+                return "a + 1'b1"
+            case "A-1":
+                return "a - 1'b1"
+            case "A+B":
+                return "a + b"
+            case "A-B":
+                return "a - b"
+            case "OR":
+                return "a | b"
+            case "XOR":
+                return "a ^ b"
+            case "NAND":
+                return "~(a & b)"
+            case "NOR":
+                return "~(a | b)"
+            case "AND":
+                return "a & b"
+            case "A=B":
+                return "a == b"
+            case "A>B":
+                return "a > b"
+            case "A<B":
+                return "a < b"
+
+    for i in range(1, 17):
+        mid += "\t\t\t4'b" + ("%04d" % int(bin(i-1)[2:])) + ": O = " + get_line(request.form[f'op{i}']) + ";\n"
+
+    return beg + mid + end
 
 
 def task5():

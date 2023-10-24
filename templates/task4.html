@@ -1,1 +1,436 @@
 <h2 class="text-3xl">Task 4</h2>
+
+<div class="my-7">
+	<form hx-trigger="submit" hx-post="/task_change?task=task4" hx-swap="innerHTML">
+	<table class="mt-4">
+	<tr>
+		<td>
+		<label class="text-lg mb-1">Opcode 0000:</label>
+		</td>
+		<td>
+		<select class="p-2" name="op1" id="op1">
+		<option value="A+1" {% if form['op1'] == "A+1" %}selected{%endif%}>A+1</option>
+		<option value="A-1" {% if form['op1'] == "A-1" %}selected{%endif%}>A-1</option>
+		<option value="A+B" {% if form['op1'] == "A+B" %}selected{%endif%}>A+B</option>
+		<option value="A-B" {% if form['op1'] == "A-B" %}selected{%endif%}>A-B</option>
+		<option value="A>B" {% if form['op1'] == "A>B" %}selected{%endif%}>A&gt;B</option>
+		<option value="A<B" {% if form['op1'] == "A<B" %}selected{%endif%}>A&lt;B</option>
+		<option value="A=B" {% if form['op1'] == "A=B" %}selected{%endif%}>A=B</option>
+		<option value="AND" {% if form['op1'] == "AND" %}selected{%endif%}>A AND B</option>
+		<option value="OR" {% if form['op1'] == "OR" %}selected{%endif%}>A OR B</option>
+		<option value="XOR" {% if form['op1'] == "XOR" %}selected{%endif%}>A XOR B</option>
+		<option value="NAND" {% if form['op1'] == "NAND" %}selected{%endif%}>A NAND B</option>
+		<option value="NOR" {% if form['op1'] == "NOR" %}selected{%endif%}>A NOR B</option>
+		<option value="B<<" {% if form['op1'] == "B<<" %}selected{%endif%}>B Left Shift</option>
+		<option value="A>>" {% if form['op1'] == "A<<" %}selected{%endif%}>A Left Shift</option>
+		<option value="B>>" {% if form['op1'] == "B>>" %}selected{%endif%}>B Right Shift</option>
+		<option value="A>>" {% if form['op1'] == "A>>" %}selected{%endif%}>A Right Shift</option>
+		</select><br/>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+		<label class="text-lg mb-1">Opcode 0001:</label>
+		</td>
+		<td>
+		<select class="p-2" name="op2" id="op2">
+		<option value="A+1" {% if form['op2'] == "A+1" %}selected{%endif%}>A+1</option>
+		<option value="A-1" {% if form['op2'] == "A-1" %}selected{%endif%}>A-1</option>
+		<option value="A+B" {% if form['op2'] == "A+B" %}selected{%endif%}>A+B</option>
+		<option value="A-B" {% if form['op2'] == "A-B" %}selected{%endif%}>A-B</option>
+		<option value="A>B" {% if form['op2'] == "A>B" %}selected{%endif%}>A&gt;B</option>
+		<option value="A<B" {% if form['op2'] == "A<B" %}selected{%endif%}>A&lt;B</option>
+		<option value="A=B" {% if form['op2'] == "A=B" %}selected{%endif%}>A=B</option>
+		<option value="AND" {% if form['op2'] == "AND" %}selected{%endif%}>A AND B</option>
+		<option value="OR" {% if form['op2'] == "OR" %}selected{%endif%}>A OR B</option>
+		<option value="XOR" {% if form['op2'] == "XOR" %}selected{%endif%}>A XOR B</option>
+		<option value="NAND" {% if form['op2'] == "NAND" %}selected{%endif%}>A NAND B</option>
+		<option value="NOR" {% if form['op2'] == "NOR" %}selected{%endif%}>A NOR B</option>
+		<option value="B<<" {% if form['op2'] == "B<<" %}selected{%endif%}>B Left Shift</option>
+		<option value="A>>" {% if form['op2'] == "A<<" %}selected{%endif%}>A Left Shift</option>
+		<option value="B>>" {% if form['op2'] == "B>>" %}selected{%endif%}>B Right Shift</option>
+		<option value="A>>" {% if form['op2'] == "A>>" %}selected{%endif%}>A Right Shift</option>
+		</select><br/>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+		<label class="text-lg mb-1">Opcode 0010:</label>
+		</td>
+		<td>
+		<select class="p-2" name="op3" id="op3">
+		<option value="A+1" {% if form['op3'] == "A+1" %}selected{%endif%}>A+1</option>
+		<option value="A-1" {% if form['op3'] == "A-1" %}selected{%endif%}>A-1</option>
+		<option value="A+B" {% if form['op3'] == "A+B" %}selected{%endif%}>A+B</option>
+		<option value="A-B" {% if form['op3'] == "A-B" %}selected{%endif%}>A-B</option>
+		<option value="A>B" {% if form['op3'] == "A>B" %}selected{%endif%}>A&gt;B</option>
+		<option value="A<B" {% if form['op3'] == "A<B" %}selected{%endif%}>A&lt;B</option>
+		<option value="A=B" {% if form['op3'] == "A=B" %}selected{%endif%}>A=B</option>
+		<option value="AND" {% if form['op3'] == "AND" %}selected{%endif%}>A AND B</option>
+		<option value="OR" {% if form['op3'] == "OR" %}selected{%endif%}>A OR B</option>
+		<option value="XOR" {% if form['op3'] == "XOR" %}selected{%endif%}>A XOR B</option>
+		<option value="NAND" {% if form['op3'] == "NAND" %}selected{%endif%}>A NAND B</option>
+		<option value="NOR" {% if form['op3'] == "NOR" %}selected{%endif%}>A NOR B</option>
+		<option value="B<<" {% if form['op3'] == "B<<" %}selected{%endif%}>B Left Shift</option>
+		<option value="A>>" {% if form['op3'] == "A<<" %}selected{%endif%}>A Left Shift</option>
+		<option value="B>>" {% if form['op3'] == "B>>" %}selected{%endif%}>B Right Shift</option>
+		<option value="A>>" {% if form['op3'] == "A>>" %}selected{%endif%}>A Right Shift</option>
+		</select><br/>
+		</td>
+	</tr>
+
+
+	<tr>
+		<td>
+		<label class="text-lg mb-1">Opcode 0011:</label>
+		</td>
+		<td>
+		<select class="p-2" name="op4" id="op4">
+		<option value="A+1" {% if form['op4'] == "A+1" %}selected{%endif%}>A+1</option>
+		<option value="A-1" {% if form['op4'] == "A-1" %}selected{%endif%}>A-1</option>
+		<option value="A+B" {% if form['op4'] == "A+B" %}selected{%endif%}>A+B</option>
+		<option value="A-B" {% if form['op4'] == "A-B" %}selected{%endif%}>A-B</option>
+		<option value="A>B" {% if form['op4'] == "A>B" %}selected{%endif%}>A&gt;B</option>
+		<option value="A<B" {% if form['op4'] == "A<B" %}selected{%endif%}>A&lt;B</option>
+		<option value="A=B" {% if form['op4'] == "A=B" %}selected{%endif%}>A=B</option>
+		<option value="AND" {% if form['op4'] == "AND" %}selected{%endif%}>A AND B</option>
+		<option value="OR" {% if form['op4'] == "OR" %}selected{%endif%}>A OR B</option>
+		<option value="XOR" {% if form['op4'] == "XOR" %}selected{%endif%}>A XOR B</option>
+		<option value="NAND" {% if form['op4'] == "NAND" %}selected{%endif%}>A NAND B</option>
+		<option value="NOR" {% if form['op4'] == "NOR" %}selected{%endif%}>A NOR B</option>
+		<option value="B<<" {% if form['op4'] == "B<<" %}selected{%endif%}>B Left Shift</option>
+		<option value="A>>" {% if form['op4'] == "A<<" %}selected{%endif%}>A Left Shift</option>
+		<option value="B>>" {% if form['op4'] == "B>>" %}selected{%endif%}>B Right Shift</option>
+		<option value="A>>" {% if form['op4'] == "A>>" %}selected{%endif%}>A Right Shift</option>
+		</select><br/>
+		</td>
+	</tr>
+
+
+	<tr>
+		<td>
+		<label class="text-lg mb-1">Opcode 0100:</label>
+		</td>
+		<td>
+		<select class="p-2" name="op5" id="op5">
+		<option value="A+1" {% if form['op5'] == "A+1" %}selected{%endif%}>A+1</option>
+		<option value="A-1" {% if form['op5'] == "A-1" %}selected{%endif%}>A-1</option>
+		<option value="A+B" {% if form['op5'] == "A+B" %}selected{%endif%}>A+B</option>
+		<option value="A-B" {% if form['op5'] == "A-B" %}selected{%endif%}>A-B</option>
+		<option value="A>B" {% if form['op5'] == "A>B" %}selected{%endif%}>A&gt;B</option>
+		<option value="A<B" {% if form['op5'] == "A<B" %}selected{%endif%}>A&lt;B</option>
+		<option value="A=B" {% if form['op5'] == "A=B" %}selected{%endif%}>A=B</option>
+		<option value="AND" {% if form['op5'] == "AND" %}selected{%endif%}>A AND B</option>
+		<option value="OR" {% if form['op5'] == "OR" %}selected{%endif%}>A OR B</option>
+		<option value="XOR" {% if form['op5'] == "XOR" %}selected{%endif%}>A XOR B</option>
+		<option value="NAND" {% if form['op5'] == "NAND" %}selected{%endif%}>A NAND B</option>
+		<option value="NOR" {% if form['op5'] == "NOR" %}selected{%endif%}>A NOR B</option>
+		<option value="B<<" {% if form['op5'] == "B<<" %}selected{%endif%}>B Left Shift</option>
+		<option value="A>>" {% if form['op5'] == "A<<" %}selected{%endif%}>A Left Shift</option>
+		<option value="B>>" {% if form['op5'] == "B>>" %}selected{%endif%}>B Right Shift</option>
+		<option value="A>>" {% if form['op5'] == "A>>" %}selected{%endif%}>A Right Shift</option>
+		</select><br/>
+		</td>
+	</tr>
+
+
+	<tr>
+		<td>
+		<label class="text-lg mb-1">Opcode 0101:</label>
+		</td>
+		<td>
+		<select class="p-2" name="op6" id="op6">
+		<option value="A+1" {% if form['op6'] == "A+1" %}selected{%endif%}>A+1</option>
+		<option value="A-1" {% if form['op6'] == "A-1" %}selected{%endif%}>A-1</option>
+		<option value="A+B" {% if form['op6'] == "A+B" %}selected{%endif%}>A+B</option>
+		<option value="A-B" {% if form['op6'] == "A-B" %}selected{%endif%}>A-B</option>
+		<option value="A>B" {% if form['op6'] == "A>B" %}selected{%endif%}>A&gt;B</option>
+		<option value="A<B" {% if form['op6'] == "A<B" %}selected{%endif%}>A&lt;B</option>
+		<option value="A=B" {% if form['op6'] == "A=B" %}selected{%endif%}>A=B</option>
+		<option value="AND" {% if form['op6'] == "AND" %}selected{%endif%}>A AND B</option>
+		<option value="OR" {% if form['op6'] == "OR" %}selected{%endif%}>A OR B</option>
+		<option value="XOR" {% if form['op6'] == "XOR" %}selected{%endif%}>A XOR B</option>
+		<option value="NAND" {% if form['op6'] == "NAND" %}selected{%endif%}>A NAND B</option>
+		<option value="NOR" {% if form['op6'] == "NOR" %}selected{%endif%}>A NOR B</option>
+		<option value="B<<" {% if form['op6'] == "B<<" %}selected{%endif%}>B Left Shift</option>
+		<option value="A>>" {% if form['op6'] == "A<<" %}selected{%endif%}>A Left Shift</option>
+		<option value="B>>" {% if form['op6'] == "B>>" %}selected{%endif%}>B Right Shift</option>
+		<option value="A>>" {% if form['op6'] == "A>>" %}selected{%endif%}>A Right Shift</option>
+		</select><br/>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+		<label class="text-lg mb-1">Opcode 0110:</label>
+		</td>
+		<td>
+		<select class="p-2" name="op7" id="op7">
+		<option value="A+1" {% if form['op7'] == "A+1" %}selected{%endif%}>A+1</option>
+		<option value="A-1" {% if form['op7'] == "A-1" %}selected{%endif%}>A-1</option>
+		<option value="A+B" {% if form['op7'] == "A+B" %}selected{%endif%}>A+B</option>
+		<option value="A-B" {% if form['op7'] == "A-B" %}selected{%endif%}>A-B</option>
+		<option value="A>B" {% if form['op7'] == "A>B" %}selected{%endif%}>A&gt;B</option>
+		<option value="A<B" {% if form['op7'] == "A<B" %}selected{%endif%}>A&lt;B</option>
+		<option value="A=B" {% if form['op7'] == "A=B" %}selected{%endif%}>A=B</option>
+		<option value="AND" {% if form['op7'] == "AND" %}selected{%endif%}>A AND B</option>
+		<option value="OR" {% if form['op7'] == "OR" %}selected{%endif%}>A OR B</option>
+		<option value="XOR" {% if form['op7'] == "XOR" %}selected{%endif%}>A XOR B</option>
+		<option value="NAND" {% if form['op7'] == "NAND" %}selected{%endif%}>A NAND B</option>
+		<option value="NOR" {% if form['op7'] == "NOR" %}selected{%endif%}>A NOR B</option>
+		<option value="B<<" {% if form['op7'] == "B<<" %}selected{%endif%}>B Left Shift</option>
+		<option value="A>>" {% if form['op7'] == "A<<" %}selected{%endif%}>A Left Shift</option>
+		<option value="B>>" {% if form['op7'] == "B>>" %}selected{%endif%}>B Right Shift</option>
+		<option value="A>>" {% if form['op7'] == "A>>" %}selected{%endif%}>A Right Shift</option>
+		</select><br/>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+		<label class="text-lg mb-1">Opcode 0111:</label>
+		</td>
+		<td>
+		<select class="p-2" name="op8" id="op8">
+		<option value="A+1" {% if form['op8'] == "A+1" %}selected{%endif%}>A+1</option>
+		<option value="A-1" {% if form['op8'] == "A-1" %}selected{%endif%}>A-1</option>
+		<option value="A+B" {% if form['op8'] == "A+B" %}selected{%endif%}>A+B</option>
+		<option value="A-B" {% if form['op8'] == "A-B" %}selected{%endif%}>A-B</option>
+		<option value="A>B" {% if form['op8'] == "A>B" %}selected{%endif%}>A&gt;B</option>
+		<option value="A<B" {% if form['op8'] == "A<B" %}selected{%endif%}>A&lt;B</option>
+		<option value="A=B" {% if form['op8'] == "A=B" %}selected{%endif%}>A=B</option>
+		<option value="AND" {% if form['op8'] == "AND" %}selected{%endif%}>A AND B</option>
+		<option value="OR" {% if form['op8'] == "OR" %}selected{%endif%}>A OR B</option>
+		<option value="XOR" {% if form['op8'] == "XOR" %}selected{%endif%}>A XOR B</option>
+		<option value="NAND" {% if form['op8'] == "NAND" %}selected{%endif%}>A NAND B</option>
+		<option value="NOR" {% if form['op8'] == "NOR" %}selected{%endif%}>A NOR B</option>
+		<option value="B<<" {% if form['op8'] == "B<<" %}selected{%endif%}>B Left Shift</option>
+		<option value="A>>" {% if form['op8'] == "A<<" %}selected{%endif%}>A Left Shift</option>
+		<option value="B>>" {% if form['op8'] == "B>>" %}selected{%endif%}>B Right Shift</option>
+		<option value="A>>" {% if form['op8'] == "A>>" %}selected{%endif%}>A Right Shift</option>
+		</select><br/>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+		<label class="text-lg mb-1">Opcode 1000:</label>
+		</td>
+		<td>
+		<select class="p-2" name="op9" id="op9">
+		<option value="A+1" {% if form['op9'] == "A+1" %}selected{%endif%}>A+1</option>
+		<option value="A-1" {% if form['op9'] == "A-1" %}selected{%endif%}>A-1</option>
+		<option value="A+B" {% if form['op9'] == "A+B" %}selected{%endif%}>A+B</option>
+		<option value="A-B" {% if form['op9'] == "A-B" %}selected{%endif%}>A-B</option>
+		<option value="A>B" {% if form['op9'] == "A>B" %}selected{%endif%}>A&gt;B</option>
+		<option value="A<B" {% if form['op9'] == "A<B" %}selected{%endif%}>A&lt;B</option>
+		<option value="A=B" {% if form['op9'] == "A=B" %}selected{%endif%}>A=B</option>
+		<option value="AND" {% if form['op9'] == "AND" %}selected{%endif%}>A AND B</option>
+		<option value="OR" {% if form['op9'] == "OR" %}selected{%endif%}>A OR B</option>
+		<option value="XOR" {% if form['op9'] == "XOR" %}selected{%endif%}>A XOR B</option>
+		<option value="NAND" {% if form['op9'] == "NAND" %}selected{%endif%}>A NAND B</option>
+		<option value="NOR" {% if form['op9'] == "NOR" %}selected{%endif%}>A NOR B</option>
+		<option value="B<<" {% if form['op9'] == "B<<" %}selected{%endif%}>B Left Shift</option>
+		<option value="A>>" {% if form['op9'] == "A<<" %}selected{%endif%}>A Left Shift</option>
+		<option value="B>>" {% if form['op9'] == "B>>" %}selected{%endif%}>B Right Shift</option>
+		<option value="A>>" {% if form['op9'] == "A>>" %}selected{%endif%}>A Right Shift</option>
+		</select><br/>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+		<label class="text-lg mb-1">Opcode 1001:</label>
+		</td>
+		<td>
+		<select class="p-2" name="op10" id="op10">
+		<option value="A+1" {% if form['op10'] == "A+1" %}selected{%endif%}>A+1</option>
+		<option value="A-1" {% if form['op10'] == "A0" %}selected{%endif%}>A-1</option>
+		<option value="A+B" {% if form['op10'] == "A+B" %}selected{%endif%}>A+B</option>
+		<option value="A-B" {% if form['op10'] == "A-B" %}selected{%endif%}>A-B</option>
+		<option value="A>B" {% if form['op10'] == "A>B" %}selected{%endif%}>A&gt;B</option>
+		<option value="A<B" {% if form['op10'] == "A<B" %}selected{%endif%}>A&lt;B</option>
+		<option value="A=B" {% if form['op10'] == "A=B" %}selected{%endif%}>A=B</option>
+		<option value="AND" {% if form['op10'] == "AND" %}selected{%endif%}>A AND B</option>
+		<option value="OR" {% if form['op10'] == "OR" %}selected{%endif%}>A OR B</option>
+		<option value="XOR" {% if form['op10'] == "XOR" %}selected{%endif%}>A XOR B</option>
+		<option value="NAND" {% if form['op10'] == "NAND" %}selected{%endif%}>A NAND B</option>
+		<option value="NOR" {% if form['op10'] == "NOR" %}selected{%endif%}>A NOR B</option>
+		<option value="B<<" {% if form['op10'] == "B<<" %}selected{%endif%}>B Left Shift</option>
+		<option value="A>>" {% if form['op10'] == "A<<" %}selected{%endif%}>A Left Shift</option>
+		<option value="B>>" {% if form['op10'] == "B>>" %}selected{%endif%}>B Right Shift</option>
+		<option value="A>>" {% if form['op10'] == "A>>" %}selected{%endif%}>A Right Shift</option>
+		</select><br/>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+		<label class="text-lg mb-1">Opcode 1010:</label>
+		</td>
+		<td>
+		<select class="p-2" name="op11" id="op11">
+		<option value="A+1" {% if form['op11'] == "A+1" %}selected{%endif%}>A+1</option>
+		<option value="A-1" {% if form['op11'] == "A0" %}selected{%endif%}>A-1</option>
+		<option value="A+B" {% if form['op11'] == "A+B" %}selected{%endif%}>A+B</option>
+		<option value="A-B" {% if form['op11'] == "A-B" %}selected{%endif%}>A-B</option>
+		<option value="A>B" {% if form['op11'] == "A>B" %}selected{%endif%}>A&gt;B</option>
+		<option value="A<B" {% if form['op11'] == "A<B" %}selected{%endif%}>A&lt;B</option>
+		<option value="A=B" {% if form['op11'] == "A=B" %}selected{%endif%}>A=B</option>
+		<option value="AND" {% if form['op11'] == "AND" %}selected{%endif%}>A AND B</option>
+		<option value="OR" {% if form['op11'] == "OR" %}selected{%endif%}>A OR B</option>
+		<option value="XOR" {% if form['op11'] == "XOR" %}selected{%endif%}>A XOR B</option>
+		<option value="NAND" {% if form['op11'] == "NAND" %}selected{%endif%}>A NAND B</option>
+		<option value="NOR" {% if form['op11'] == "NOR" %}selected{%endif%}>A NOR B</option>
+		<option value="B<<" {% if form['op11'] == "B<<" %}selected{%endif%}>B Left Shift</option>
+		<option value="A>>" {% if form['op11'] == "A<<" %}selected{%endif%}>A Left Shift</option>
+		<option value="B>>" {% if form['op11'] == "B>>" %}selected{%endif%}>B Right Shift</option>
+		<option value="A>>" {% if form['op11'] == "A>>" %}selected{%endif%}>A Right Shift</option>
+		</select><br/>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+		<label class="text-lg mb-1">Opcode 1011:</label>
+		</td>
+		<td>
+		<select class="p-2" name="op12" id="op12">
+		<option value="A+1" {% if form['op12'] == "A+1" %}selected{%endif%}>A+1</option>
+		<option value="A-1" {% if form['op12'] == "A0" %}selected{%endif%}>A-1</option>
+		<option value="A+B" {% if form['op12'] == "A+B" %}selected{%endif%}>A+B</option>
+		<option value="A-B" {% if form['op12'] == "A-B" %}selected{%endif%}>A-B</option>
+		<option value="A>B" {% if form['op12'] == "A>B" %}selected{%endif%}>A&gt;B</option>
+		<option value="A<B" {% if form['op12'] == "A<B" %}selected{%endif%}>A&lt;B</option>
+		<option value="A=B" {% if form['op12'] == "A=B" %}selected{%endif%}>A=B</option>
+		<option value="AND" {% if form['op12'] == "AND" %}selected{%endif%}>A AND B</option>
+		<option value="OR" {% if form['op12'] == "OR" %}selected{%endif%}>A OR B</option>
+		<option value="XOR" {% if form['op12'] == "XOR" %}selected{%endif%}>A XOR B</option>
+		<option value="NAND" {% if form['op12'] == "NAND" %}selected{%endif%}>A NAND B</option>
+		<option value="NOR" {% if form['op12'] == "NOR" %}selected{%endif%}>A NOR B</option>
+		<option value="B<<" {% if form['op12'] == "B<<" %}selected{%endif%}>B Left Shift</option>
+		<option value="A>>" {% if form['op12'] == "A<<" %}selected{%endif%}>A Left Shift</option>
+		<option value="B>>" {% if form['op12'] == "B>>" %}selected{%endif%}>B Right Shift</option>
+		<option value="A>>" {% if form['op12'] == "A>>" %}selected{%endif%}>A Right Shift</option>
+		</select><br/>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+		<label class="text-lg mb-1">Opcode 1100:</label>
+		</td>
+		<td>
+		<select class="p-2" name="op13" id="op13">
+		<option value="A+1" {% if form['op13'] == "A+1" %}selected{%endif%}>A+1</option>
+		<option value="A-1" {% if form['op13'] == "A0" %}selected{%endif%}>A-1</option>
+		<option value="A+B" {% if form['op13'] == "A+B" %}selected{%endif%}>A+B</option>
+		<option value="A-B" {% if form['op13'] == "A-B" %}selected{%endif%}>A-B</option>
+		<option value="A>B" {% if form['op13'] == "A>B" %}selected{%endif%}>A&gt;B</option>
+		<option value="A<B" {% if form['op13'] == "A<B" %}selected{%endif%}>A&lt;B</option>
+		<option value="A=B" {% if form['op13'] == "A=B" %}selected{%endif%}>A=B</option>
+		<option value="AND" {% if form['op13'] == "AND" %}selected{%endif%}>A AND B</option>
+		<option value="OR" {% if form['op13'] == "OR" %}selected{%endif%}>A OR B</option>
+		<option value="XOR" {% if form['op13'] == "XOR" %}selected{%endif%}>A XOR B</option>
+		<option value="NAND" {% if form['op13'] == "NAND" %}selected{%endif%}>A NAND B</option>
+		<option value="NOR" {% if form['op13'] == "NOR" %}selected{%endif%}>A NOR B</option>
+		<option value="B<<" {% if form['op13'] == "B<<" %}selected{%endif%}>B Left Shift</option>
+		<option value="A>>" {% if form['op13'] == "A<<" %}selected{%endif%}>A Left Shift</option>
+		<option value="B>>" {% if form['op13'] == "B>>" %}selected{%endif%}>B Right Shift</option>
+		<option value="A>>" {% if form['op13'] == "A>>" %}selected{%endif%}>A Right Shift</option>
+		</select><br/>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+		<label class="text-lg mb-1">Opcode 1101:</label>
+		</td>
+		<td>
+		<select class="p-2" name="op14" id="op14">
+		<option value="A+1" {% if form['op14'] == "A+1" %}selected{%endif%}>A+1</option>
+		<option value="A-1" {% if form['op14'] == "A0" %}selected{%endif%}>A-1</option>
+		<option value="A+B" {% if form['op14'] == "A+B" %}selected{%endif%}>A+B</option>
+		<option value="A-B" {% if form['op14'] == "A-B" %}selected{%endif%}>A-B</option>
+		<option value="A>B" {% if form['op14'] == "A>B" %}selected{%endif%}>A&gt;B</option>
+		<option value="A<B" {% if form['op14'] == "A<B" %}selected{%endif%}>A&lt;B</option>
+		<option value="A=B" {% if form['op14'] == "A=B" %}selected{%endif%}>A=B</option>
+		<option value="AND" {% if form['op14'] == "AND" %}selected{%endif%}>A AND B</option>
+		<option value="OR" {% if form['op14'] == "OR" %}selected{%endif%}>A OR B</option>
+		<option value="XOR" {% if form['op14'] == "XOR" %}selected{%endif%}>A XOR B</option>
+		<option value="NAND" {% if form['op14'] == "NAND" %}selected{%endif%}>A NAND B</option>
+		<option value="NOR" {% if form['op14'] == "NOR" %}selected{%endif%}>A NOR B</option>
+		<option value="B<<" {% if form['op14'] == "B<<" %}selected{%endif%}>B Left Shift</option>
+		<option value="A>>" {% if form['op14'] == "A<<" %}selected{%endif%}>A Left Shift</option>
+		<option value="B>>" {% if form['op14'] == "B>>" %}selected{%endif%}>B Right Shift</option>
+		<option value="A>>" {% if form['op14'] == "A>>" %}selected{%endif%}>A Right Shift</option>
+		</select><br/>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+		<label class="text-lg mb-1">Opcode 1110:</label>
+		</td>
+		<td>
+		<select class="p-2" name="op15" id="op15">
+		<option value="A+1" {% if form['op15'] == "A+1" %}selected{%endif%}>A+1</option>
+		<option value="A-1" {% if form['op15'] == "A0" %}selected{%endif%}>A-1</option>
+		<option value="A+B" {% if form['op15'] == "A+B" %}selected{%endif%}>A+B</option>
+		<option value="A-B" {% if form['op15'] == "A-B" %}selected{%endif%}>A-B</option>
+		<option value="A>B" {% if form['op15'] == "A>B" %}selected{%endif%}>A&gt;B</option>
+		<option value="A<B" {% if form['op15'] == "A<B" %}selected{%endif%}>A&lt;B</option>
+		<option value="A=B" {% if form['op15'] == "A=B" %}selected{%endif%}>A=B</option>
+		<option value="AND" {% if form['op15'] == "AND" %}selected{%endif%}>A AND B</option>
+		<option value="OR" {% if form['op15'] == "OR" %}selected{%endif%}>A OR B</option>
+		<option value="XOR" {% if form['op15'] == "XOR" %}selected{%endif%}>A XOR B</option>
+		<option value="NAND" {% if form['op15'] == "NAND" %}selected{%endif%}>A NAND B</option>
+		<option value="NOR" {% if form['op15'] == "NOR" %}selected{%endif%}>A NOR B</option>
+		<option value="B<<" {% if form['op15'] == "B<<" %}selected{%endif%}>B Left Shift</option>
+		<option value="A>>" {% if form['op15'] == "A<<" %}selected{%endif%}>A Left Shift</option>
+		<option value="B>>" {% if form['op15'] == "B>>" %}selected{%endif%}>B Right Shift</option>
+		<option value="A>>" {% if form['op15'] == "A>>" %}selected{%endif%}>A Right Shift</option>
+		</select><br/>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+		<label class="text-lg mb-1">Opcode 1111:</label>
+		</td>
+		<td>
+		<select class="p-2" name="op16" id="op16">
+		<option value="A+1" {% if form['op16'] == "A+1" %}selected{%endif%}>A+1</option>
+		<option value="A-1" {% if form['op16'] == "A0" %}selected{%endif%}>A-1</option>
+		<option value="A+B" {% if form['op16'] == "A+B" %}selected{%endif%}>A+B</option>
+		<option value="A-B" {% if form['op16'] == "A-B" %}selected{%endif%}>A-B</option>
+		<option value="A>B" {% if form['op16'] == "A>B" %}selected{%endif%}>A&gt;B</option>
+		<option value="A<B" {% if form['op16'] == "A<B" %}selected{%endif%}>A&lt;B</option>
+		<option value="A=B" {% if form['op16'] == "A=B" %}selected{%endif%}>A=B</option>
+		<option value="AND" {% if form['op16'] == "AND" %}selected{%endif%}>A AND B</option>
+		<option value="OR" {% if form['op16'] == "OR" %}selected{%endif%}>A OR B</option>
+		<option value="XOR" {% if form['op16'] == "XOR" %}selected{%endif%}>A XOR B</option>
+		<option value="NAND" {% if form['op16'] == "NAND" %}selected{%endif%}>A NAND B</option>
+		<option value="NOR" {% if form['op16'] == "NOR" %}selected{%endif%}>A NOR B</option>
+		<option value="B<<" {% if form['op16'] == "B<<" %}selected{%endif%}>B Left Shift</option>
+		<option value="A>>" {% if form['op16'] == "A<<" %}selected{%endif%}>A Left Shift</option>
+		<option value="B>>" {% if form['op16'] == "B>>" %}selected{%endif%}>B Right Shift</option>
+		<option value="A>>" {% if form['op16'] == "A>>" %}selected{%endif%}>A Right Shift</option>
+		</select><br/>
+		</td>
+	</tr>
+	</table>
+
+	<button type="submit" class="bg-white outline outline-sky-600 outline-4 hover:text-white hover:bg-sky-600 transition-all rounded-xl p-2 mt-5">
+        Get Code
+    </button>
+	</form>
+</div>
+
+<div class="mt-7">
+<pre><code class="language-verilog" id="code">
+{% if code %}{{code}}{% endif %}
+</code></pre><script>hljs.highlightAll();</script>
+</div>

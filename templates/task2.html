@@ -1,1 +1,26 @@
 <h2 class="text-3xl">Task 2</h2>
+
+<div class="my-7">
+	<p class="text-lg mt-7 mb-1">Circuit:</p>
+	<select class="p-2" name="circuit" id="circuit" hx-trigger="change" hx-post="/task_change?task=task2" hx-include="[name='mode']" hx-swap="innerHTML">
+	<option value="HA" selected hidden>Select</option>
+	<option value="HA" {% if form['circuit'] == "HA" %}selected{%endif%}>Half Adder</option>
+	<option value="FA" {% if form['circuit'] == "FA" %}selected{%endif%}>Full Adder</option>
+	<option value="HS" {% if form['circuit'] == "HS" %}selected{%endif%}>Half Subtractor</option>
+	<option value="FS" {% if form['circuit'] == "FS" %}selected{%endif%}>Full Subtractor</option>
+	</select>
+
+
+	<p class="text-lg mt-7 mb-1">Mode:</p>
+	<select class="p-2" name="mode" id="mode" hx-trigger="change" hx-post="/task_change?task=task2" hx-include="[name='circuit']" hx-swap="innerHTML">
+	<option value="BL" {% if form['mode'] == "BL" %}selected{%endif%}>BL</option>
+	<option value="DFL" {% if form['mode'] == "DFL" %}selected{%endif%}>DFL</option>
+	<option value="SL" {% if form['mode'] == "SL" %}selected{%endif%}>SL</option>
+	</select>
+</div>
+
+<div class="mt-7">
+<pre><code class="language-verilog" id="code">
+{% if code %}{{code}}{% endif %}
+</code></pre><script>hljs.highlightAll();</script>
+</div>
