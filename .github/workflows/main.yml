@@ -33,15 +33,37 @@ jobs:
           cd build
           tar cvfz systems_design.tar.gz *linux*
         if: matrix.os == 'ubuntu-latest'
+      - name: Upload Linux
+        uses: actions/upload-artifact@v3
+        with:
+          name: systems_design.tar.gz
+          path: systems_design.tar.gz
+        if: matrix.os == 'ubuntu-latest'
       - name: Package Windows
         run: |
           cd build
           Compress-Archive -Path .\exe.win-amd64-3.10 -DestinationPath .\systems_design.zip
         if: matrix.os == 'windows-latest'
+      - name: Upload Windows
+        uses: actions/upload-artifact@v3
+        with:
+          name: systems_design.zip
+          path: systems_design.zip
+        if: matrix.os == 'windows-latest'
+  release:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Download Files
+        uses: actions/download-artifact@v3
       - name: Make Release
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            build/systems_design.tar.gz
-            build/systems_design.zip
+            systems_design.tar.gz
+            systems_design.zip
+    
+    
     
