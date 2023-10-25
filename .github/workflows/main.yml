@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: systems_design.tar.gz
-          path: systems_design.tar.gz
+          path: build/systems_design.tar.gz
         if: matrix.os == 'ubuntu-latest'
       - name: Package Windows
         run: |
@@ -48,7 +48,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: systems_design.zip
-          path: systems_design.zip
+          path: build/systems_design.zip
         if: matrix.os == 'windows-latest'
   release:
     runs-on: ubuntu-latest
