@@ -27,6 +27,6 @@ jobs:
       - name: Package Windows
         run: |
           cd build
-          Compress-Archive -Path .\exe.windows-3.11 -DestinationPath .\systems_design.zip
+          Compress-Archive -Path .\exe.win-amd64-3.10 -DestinationPath .\systems_design.zip
         if: matrix.os == 'windows-latest'
     
