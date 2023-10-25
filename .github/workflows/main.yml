@@ -2,6 +2,9 @@ name: Build
 on: workflow_dispatch
 jobs:
   build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
     name: build
     runs-on: ${{ matrix.os }}
     steps:
@@ -9,12 +12,12 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup python
         uses: actions/setup-python@v4
-  	    with:
+        with:
           python-version: '3.10'
           cache: 'pip'
       - name: Pip install
         run: pip install -r requirements.txt
-   	  - name: Actually build
+      - name: Actually build
         run: python setup.py build
       - name: Package Linux
         run: |
@@ -26,6 +29,3 @@ jobs:
           cd build
           Compress-Archive -Path .\exe.windows-3.11 -DestinationPath .\systems_design.zip
     
-    strategy:
-	 		matrix:
-        os: [ubuntu-latest, windows-latest]
