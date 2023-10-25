@@ -64,6 +64,13 @@ jobs:
           files: |
             systems_design.tar.gz
             systems_design.zip
+  clean:
+    runs-on: ubuntu-latest
+    needs: release
+    steps:
+      - uses: geekyeggo/delete-artifact@v2
+        with:
+          name: sys*
     
     
     
