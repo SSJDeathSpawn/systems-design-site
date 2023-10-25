@@ -61,8 +61,10 @@ jobs:
       - name: Show files
         run: ls
       - name: Make Release
-        uses: softprops/action-gh-release@v1
+        uses: "marvinpinto/action-automatic-releases@latest"
         with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
           files: |
             ./systems_design.tar.gz
             ./systems_design.zip
