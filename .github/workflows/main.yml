@@ -64,8 +64,8 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            systems_design.tar.gz
-            systems_design.zip
+            ./systems_design.tar.gz
+            ./systems_design.zip
   clean:
     runs-on: ubuntu-latest
     needs: release
