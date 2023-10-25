@@ -1,4 +1,4 @@
-name: Build
+name: Build and Release
 on: workflow_dispatch
 jobs:
   build:
@@ -10,11 +10,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Setup node
+        uses: actions/setup-node@v3
       - name: Setup python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
           cache: 'pip'
+      - name: Tailwind
+        run: |
+          npm i
+          npx tailwindcss -i ./static/css/input.css -o ./static/css/output.css
       - name: Pip install
         run: pip install -r requirements.txt
       - name: Actually build
@@ -29,4 +35,10 @@ jobs:
           cd build
           Compress-Archive -Path .\exe.win-amd64-3.10 -DestinationPath .\systems_design.zip
         if: matrix.os == 'windows-latest'
+      - name: Make Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            build/systems_design.tar.gz
+            build/systems_design.zip
     
