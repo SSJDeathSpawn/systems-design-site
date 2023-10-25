@@ -28,4 +28,5 @@ jobs:
         run: |
           cd build
           Compress-Archive -Path .\exe.windows-3.11 -DestinationPath .\systems_design.zip
+        if: matrix.os == 'windows-latest'
     
