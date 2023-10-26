@@ -99,6 +99,7 @@ module task1_tb;
     integer i;
 
     initial begin
+        $monitor("A=%0b|B=%0b|C=%0b|D=%0b|F=%0b",a,b,c,d,O)
         for(i=0;i<16;i=i+1) begin
             {a,b,c,d} = i;
             #10;
@@ -435,6 +436,7 @@ module task3_tb;
 \tinteger i;
 
 \tinitial begin
+\t\t$monitor("A=%0b|B=%0b|C=%0b|D=%0b|F=%0b",a,b,c,d,O)
 \t\tfor(i=0;i<16;i=i+1) begin
 \t\t\t{a,b,c,d} = i;
 \t\t\t#10;
@@ -587,6 +589,7 @@ module task5_tb;
 
 \tinitial begin
 \t\tclk = 1'b0;
+\t\t$monitor("CLK=%0b|O=%02d",clk, O)
 \t\tfor(i=0;i<20;i=i+1) begin
 \t\t\tclk = ~clk;
 \t\t\t#5;
